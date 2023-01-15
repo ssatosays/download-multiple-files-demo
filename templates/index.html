@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}index{% endblock %}
+
+{% block content %}
+<div>
+  <a href="" onclick="window.click(); return false;">click me!</a>
+</div>
+<script type="text/javascript">
+  function download(el) {
+    let link = document.createElement('a');
+    link.href = `/get?file_name=${el}`;
+    link.download = el;
+    link.dispatchEvent(new MouseEvent('click'));
+  }
+  function click() {
+    const files = ['1.pdf', '2.pdf', '3.pdf'];
+    files.forEach((el) => {download(el)})
+  }
+</script>
+{% endblock %}
